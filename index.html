@@ -1,105 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GW Jigs & Lures</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0f0f0f;
-    color: white;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+    color:#333;
 }
 
 /* HEADER */
 header {
-    background: maroon;
-    padding: 20px;
-    text-align: center;
+    background:#6b0013;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
-    letter-spacing: 2px;
+header img {
+    width:160px;
+    margin-bottom:10px;
 }
 
+/* NAV */
 nav {
-    background: black;
-    padding: 10px;
-    text-align: center;
+    background:#d9d9d9;
+    text-align:center;
+    padding:10px;
 }
 
 nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
+    margin:0 10px;
+    color:#6b0013;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 /* HERO */
 .hero {
-    padding: 60px 20px;
-    text-align: center;
-    background: linear-gradient(to right, maroon, #111);
+    text-align:center;
+    padding:40px;
+    background:linear-gradient(to right,#fff,#d9d9d9);
 }
 
-.hero h2 {
-    font-size: 32px;
-}
-
-.hero p {
-    color: #ddd;
+/* SECTION TITLE */
+.section-title {
+    text-align:center;
+    color:#6b0013;
+    margin-top:40px;
 }
 
 /* PRODUCTS */
 .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-    padding: 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    padding:20px;
 }
 
 .card {
-    background: #1a1a1a;
-    border: 1px solid maroon;
-    padding: 15px;
-    border-radius: 8px;
-}
-
-.card h3 {
-    margin-top: 0;
-    color: maroon;
+    background:white;
+    border:1px solid #ccc;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    text-align:center;
 }
 
 button {
-    background: maroon;
-    border: none;
-    padding: 8px;
-    color: white;
-    width: 100%;
-    cursor: pointer;
+    background:#6b0013;
+    color:white;
+    border:none;
+    padding:10px;
+    width:100%;
+    cursor:pointer;
+    border-radius:5px;
 }
 
 button:hover {
-    background: #a00000;
+    background:#8c1027;
 }
 
-/* CART */
-.cart {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 260px;
-    height: 100%;
-    background: #111;
-    border-left: 2px solid maroon;
-    padding: 10px;
-}
-
-.cart h3 {
-    color: maroon;
+/* FOOTER */
+footer {
+    background:#6b0013;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
 }
 </style>
 </head>
@@ -107,104 +99,131 @@ button:hover {
 <body>
 
 <header>
+    <img src="logo.png" alt="GW Jigs & Lures Logo">
     <h1>GW Jigs & Lures</h1>
-    <p>Texas Built • Fish Approved</p>
+    <p>Texas Built • Fish Approved • Christian-Owned</p>
 </header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="mailto:gwmlures@gmail.com">Contact</a>
+    <a href="#best">Best Sellers</a>
+    <a href="#crappie">Crappie</a>
+    <a href="#soft">Soft Plastics</a>
+    <a href="#about">About</a>
+    <a href="https://youtube.com/@GWLures-413" target="_blank">YouTube</a>
 </nav>
 
 <div class="hero">
-    <h2>Catch More Fish</h2>
-    <p>Premium soft plastics & crappie jigs made for serious anglers</p>
+    <h2>Premium Handcrafted Fishing Lures</h2>
+    <p>Built in Texas for anglers who love catching fish</p>
 </div>
 
+<!-- BEST SELLERS -->
+<h2 id="best" class="section-title">🏆 Best Sellers</h2>
 <div class="products">
 
-    <div class="card">
-        <h3>Crappie Minnow</h3>
-        <p>2" Soft Plastic</p>
-        <p>$1.99 (Pack of 5)</p>
-        <button onclick="addToCart('Crappie Minnow')">Add to Cart</button>
-    </div>
-
-    <div class="card">
-        <h3>Senko</h3>
-        <p>5" Swimbait</p>
-        <p>$5.50 (Pack of 5)</p>
-        <button onclick="addToCart('Senko')">Add to Cart</button>
-    </div>
-
-    <div class="card">
-        <h3>Ripper</h3>
-        <p>3.5" Swimbait</p>
-        <p>$4.99 (Pack of 5)</p>
-        <button onclick="addToCart('Ripper')">Add to Cart</button>
-    </div>
-
-    <div class="card">
-        <h3>Brush Hog</h3>
-        <p>4" Creature Bait</p>
-        <p>$4.99 (Pack of 5)</p>
-        <button onclick="addToCart('Brush Hog')">Add to Cart</button>
-    </div>
-
-    <div class="card">
-        <h3>Curly Tail</h3>
-        <p>7" Worm</p>
-        <p>$5.99 (Pack of 5)</p>
-        <button onclick="addToCart('Curly Tail')">Add to Cart</button>
-    </div>
-
-    <div class="card">
-        <h3>Speed Worm</h3>
-        <p>7" Worm</p>
-        <p>$6.50 (Pack of 5)</p>
-        <button onclick="addToCart('Speed Worm')">Add to Cart</button>
-    </div>
-
-    <div class="card">
-        <h3>Cricket</h3>
-        <p>2" Insect Bait</p>
-        <p>$3.99 (Pack of 10)</p>
-        <button onclick="addToCart('Cricket')">Add to Cart</button>
-    </div>
-
-    <div class="card">
-        <h3>Rage Bug</h3>
-        <p>4" Creature Bait</p>
-        <p>$4.99 (Pack of 5)</p>
-        <button onclick="addToCart('Rage Bug')">Add to Cart</button>
-    </div>
+<div class="card"><h3>Senko</h3><p>$5.49</p></div>
+<div class="card"><h3>1/8 oz Crappie Jig</h3><p>$9.99</p></div>
+<div class="card"><h3>Fluke</h3><p>$5.49</p></div>
 
 </div>
 
-<div class="cart">
-    <h3>Cart</h3>
-    <ul id="cartList"></ul>
+<!-- CRAPPIE -->
+<h2 id="crappie" class="section-title">🎣 Crappie Fishing</h2>
+<div class="products">
+
+<div class="card">
+<h3>Crappie Minnow</h3>
+<p>$1.99 (5 pack)</p>
 </div>
 
-<script>
-let cart = [];
+<div class="card">
+<h3>1/16 oz Crappie Jig</h3>
+<p>$8.99 (3 pack)</p>
+</div>
 
-function addToCart(item) {
-    cart.push(item);
-    renderCart();
-}
+<div class="card">
+<h3>Custom 1/16 oz Jig</h3>
+<p>$9.99 (3 pack)</p>
+</div>
 
-function renderCart() {
-    let list = document.getElementById("cartList");
-    list.innerHTML = "";
-    cart.forEach(i => {
-        let li = document.createElement("li");
-        li.textContent = i;
-        list.appendChild(li);
-    });
-}
-</script>
+<div class="card">
+<h3>1/8 oz Crappie Jig</h3>
+<p>$9.99 (3 pack)</p>
+</div>
+
+<div class="card">
+<h3>Custom 1/8 oz Jig</h3>
+<p>$10.99 (3 pack)</p>
+</div>
+
+</div>
+
+<!-- SOFT PLASTICS -->
+<h2 id="soft" class="section-title">🪱 Soft Plastics</h2>
+<div class="products">
+
+<div class="card"><h3>Senko</h3><p>$5.49 (5 pack)</p></div>
+<div class="card"><h3>Ripper</h3><p>$4.99</p></div>
+<div class="card"><h3>Brush Hog</h3><p>$4.99</p></div>
+<div class="card"><h3>Curly Tail</h3><p>$5.99</p></div>
+<div class="card"><h3>Speed Worm</h3><p>$6.49</p></div>
+<div class="card"><h3>Cricket</h3><p>$3.99 (10 pack)</p></div>
+<div class="card"><h3>Rage Bug</h3><p>$4.99</p></div>
+<div class="card"><h3>Fluke</h3><p>$5.49</p></div>
+
+<div class="card">
+<h3>🎁 Senko Mystery Pack</h3>
+<p>$5.49 (5 pack)</p>
+<p>May include special remelt colors</p>
+</div>
+
+</div>
+
+<!-- ABOUT -->
+<h2 id="about" class="section-title">About GW Jigs & Lures</h2>
+<div class="card" style="margin:20px;">
+
+<p>
+GW Jigs & Lures is a small fishing lure company based in Texas.
+</p>
+
+<p>
+I started making lures when I was 12 years old. I got into fishing with my baseball teammates out on Lake Conroe, and quickly developed a passion for it.
+</p>
+
+<p>
+Bass fishing is my favorite, and every bait is made with that mindset.
+</p>
+
+<p>
+This is a Christian-owned small business built on honesty, hard work, and appreciation for every customer.
+</p>
+
+<p><strong>Tight lines and God bless!</strong></p>
+
+<p>
+YouTube: <a href="https://youtube.com/@GWLures-413" target="_blank">@GWLures-413</a>
+</p>
+
+</div>
+
+<!-- SHIPPING -->
+<div class="card" style="margin:20px;">
+
+<h3>Shipping</h3>
+<p>Texas: $9 shipping</p>
+<p>Other states: $12 shipping</p>
+<p>Orders ship within 2–5 business days</p>
+
+</div>
+
+<footer>
+    <p>GW Jigs & Lures</p>
+    <p>Proudly Made in Texas 🤠</p>
+    <p>Christian-Owned Small Business ✝️</p>
+    <p>Texas Built • Fish Approved</p>
+    <p>gwmlures@gmail.com</p>
+</footer>
 
 </body>
 </html>
