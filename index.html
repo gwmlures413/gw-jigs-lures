@@ -6,95 +6,118 @@
 <title>GW Jigs & Lures</title>
 
 <style>
-body {
+body{
     margin:0;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#f4f4f4;
 }
 
-/* HEADER */
-header {
+header{
     background:#6b0013;
     color:white;
     text-align:center;
     padding:20px;
 }
 
-header img {
-    width:140px;
-    margin-bottom:10px;
+header img{
+    width:160px;
+    max-width:90%;
 }
 
-/* NAV */
-nav {
-    background:#ddd;
+nav{
+    background:#d9d9d9;
     text-align:center;
-    padding:10px;
+    padding:12px;
 }
 
-nav a {
-    margin:10px;
+nav a{
     color:#6b0013;
-    font-weight:bold;
     text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
 }
 
-/* LAYOUT */
-.container {
-    max-width:1100px;
+.container{
+    max-width:1200px;
     margin:auto;
     padding:20px;
 }
 
-h2 {
-    color:#6b0013;
+h2{
     text-align:center;
+    color:#6b0013;
     margin-top:40px;
 }
 
-/* PRODUCT GRID */
-.grid {
+.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 }
 
-.card {
+.card{
     background:white;
-    padding:15px;
     border-radius:10px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.2);
+    padding:15px;
     text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
-button {
+.card img{
+    width:100%;
+    border-radius:8px;
+}
+
+.card a{
+    text-decoration:none;
+    color:black;
+}
+
+.badge{
+    background:gold;
+    padding:5px 10px;
+    border-radius:5px;
+    display:inline-block;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+button{
+    width:100%;
+    padding:12px;
     background:#6b0013;
     color:white;
     border:none;
-    padding:10px;
-    width:100%;
-    cursor:pointer;
     border-radius:5px;
+    cursor:pointer;
 }
 
-button:hover {
+button:hover{
     background:#8c1027;
 }
 
-/* CART */
-#cart {
-    position:fixed;
-    right:10px;
-    top:10px;
-    width:260px;
+#cart{
     background:white;
-    padding:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.3);
+    padding:20px;
+    margin-top:40px;
     border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
-#cart p {
-    margin:5px 0;
+.about{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    margin-top:40px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+footer{
+    background:#6b0013;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
 }
 </style>
 </head>
@@ -102,148 +125,162 @@ button:hover {
 <body>
 
 <header>
-    <img src="logo.png" alt="GW Jigs Logo">
-    <h1>GW Jigs & Lures</h1>
-    <p>Texas Built • Fish Approved • Christian-Owned</p>
+<img src="logo.png" alt="GW Jigs & Lures">
+<h1>GW Jigs & Lures</h1>
+<p>Texas Built • Fish Approved • Christian-Owned ✝️</p>
 </header>
 
 <nav>
-    <a href="#soft">Soft Plastics</a>
-    <a href="#crappie">Crappie</a>
+<a href="#softplastics">Soft Plastics</a>
+<a href="#crappie">Crappie</a>
+<a href="#about">About</a>
 </nav>
-
-<!-- CART -->
-<div id="cart">
-    <h3>🛒 Cart</h3>
-    <div id="cartItems"></div>
-    <hr>
-    <p id="subtotal">Subtotal: $0.00</p>
-    <p id="shipping">Shipping: $0.00</p>
-    <p><strong id="total">Total: $0.00</strong></p>
-    <button onclick="checkout()">Checkout</button>
-</div>
 
 <div class="container">
 
-<!-- SOFT PLASTICS -->
-<h2 id="soft">🪱 Soft Plastics</h2>
+<h2 id="softplastics">🪱 Soft Plastics</h2>
+
 <div class="grid">
 
 <div class="card">
-<img src="placeholder-lure.png" width="100%">
-
-<h3>🏆 Senko</h3>
-
+<div class="badge">🏆 Best Seller</div>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>Senko</h3></a>
 <p>$5.49</p>
-
-<a href="product.html">
-<button>View Product</button>
-</a>
-
+<button onclick="addToCart('Senko',5.49)">Add To Cart</button>
 </div>
+
 <div class="card">
-<h3>Fluke</h3>
+<div class="badge">🏆 Best Seller</div>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>Fluke</h3></a>
 <p>$5.49</p>
-<button onclick="addToCart('Fluke',5.49)">Add to Cart</button>
+<button onclick="addToCart('Fluke',5.49)">Add To Cart</button>
 </div>
 
 <div class="card">
-<h3>Ripper</h3>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>Ripper</h3></a>
 <p>$4.99</p>
-<button onclick="addToCart('Ripper',4.99)">Add to Cart</button>
+<button onclick="addToCart('Ripper',4.99)">Add To Cart</button>
 </div>
 
 <div class="card">
-<h3>Brush Hog</h3>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>Brush Hog</h3></a>
 <p>$4.99</p>
-<button onclick="addToCart('Brush Hog',4.99)">Add to Cart</button>
+<button onclick="addToCart('Brush Hog',4.99)">Add To Cart</button>
 </div>
 
 <div class="card">
-<h3>Curly Tail</h3>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>Curly Tail</h3></a>
 <p>$5.99</p>
-<button onclick="addToCart('Curly Tail',5.99)">Add to Cart</button>
+<button onclick="addToCart('Curly Tail',5.99)">Add To Cart</button>
 </div>
 
 <div class="card">
-<h3>Speed Worm</h3>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>Speed Worm</h3></a>
 <p>$6.49</p>
-<button onclick="addToCart('Speed Worm',6.49)">Add to Cart</button>
+<button onclick="addToCart('Speed Worm',6.49)">Add To Cart</button>
 </div>
 
 <div class="card">
-<h3>Cricket</h3>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>Cricket</h3></a>
 <p>$3.99</p>
-<button onclick="addToCart('Cricket',3.99)">Add to Cart</button>
+<button onclick="addToCart('Cricket',3.99)">Add To Cart</button>
 </div>
 
 <div class="card">
-<h3>Rage Bug</h3>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>Rage Bug</h3></a>
 <p>$4.99</p>
-<button onclick="addToCart('Rage Bug',4.99)">Add to Cart</button>
+<button onclick="addToCart('Rage Bug',4.99)">Add To Cart</button>
+</div>
+
+<div class="card">
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>🎁 Senko Mystery Pack</h3></a>
+<p>$5.49</p>
+<button onclick="addToCart('Senko Mystery Pack',5.49)">Add To Cart</button>
 </div>
 
 </div>
 
-<!-- CRAPPIE -->
-<h2 id="crappie">🎣 Crappie Fishing</h2>
+<h2 id="crappie">🎣 Crappie</h2>
+
 <div class="grid">
 
 <div class="card">
-<h3>Crappie Minnow</h3>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>Crappie Minnow</h3></a>
 <p>$1.99</p>
-<button onclick="addToCart('Crappie Minnow',1.99)">Add to Cart</button>
+<button onclick="addToCart('Crappie Minnow',1.99)">Add To Cart</button>
 </div>
 
 <div class="card">
-<h3>1/16 oz Jig</h3>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>1/16 oz Jig</h3></a>
 <p>$8.99</p>
-<button onclick="addToCart('1/16 oz Jig',8.99)">Add to Cart</button>
+<button onclick="addToCart('1/16 oz Jig',8.99)">Add To Cart</button>
 </div>
 
 <div class="card">
-<h3>1/8 oz Jig</h3>
+<div class="badge">🏆 Best Seller</div>
+<a href="product.html"><img src="placeholder-lure.png"></a>
+<a href="product.html"><h3>1/8 oz Jig</h3></a>
 <p>$9.99</p>
-<button onclick="addToCart('1/8 oz Jig',9.99)">Add to Cart</button>
+<button onclick="addToCart('1/8 oz Jig',9.99)">Add To Cart</button>
 </div>
 
 </div>
 
+<div id="cart">
+<h2>🛒 Cart</h2>
+<div id="cartItems"></div>
+<p id="total">Total: $0.00</p>
 </div>
+
+<div class="about" id="about">
+<h2>About GW Jigs & Lures</h2>
+
+<p>
+GW Jigs & Lures is a Christian-owned small business based in Texas.
+I started making lures when I was 12 years old after getting into fishing with my baseball teammates on Lake Conroe.
+</p>
+
+<p>
+Bass fishing is my favorite, and every bait is made with the goal of helping anglers catch more fish with quality handmade products.
+</p>
+
+<p>
+Shipping: Texas $9 • Other States $12
+</p>
+
+<h3>YouTube</h3>
+<p>@GWLures-413</p>
+</div>
+
+</div>
+
+<footer>
+<p>GW Jigs & Lures ✝️</p>
+<p>Texas Built • Fish Approved</p>
+</footer>
 
 <script>
-let cart = [];
+let total = 0;
 
 function addToCart(name, price){
-    cart.push({name,price});
-    updateCart();
-}
+    total += price;
 
-function updateCart(){
-    let list = document.getElementById("cartItems");
-    list.innerHTML = "";
+    document.getElementById("cartItems").innerHTML +=
+    "<p>" + name + " - $" + price.toFixed(2) + "</p>";
 
-    let subtotal = 0;
-
-    cart.forEach(item=>{
-        subtotal += item.price;
-        list.innerHTML += "<p>"+item.name+" - $"+item.price.toFixed(2)+"</p>";
-    });
-
-    let shipping = subtotal > 0 ? 12 : 0;
-
-    document.getElementById("subtotal").innerText = "Subtotal: $" + subtotal.toFixed(2);
-    document.getElementById("shipping").innerText = "Shipping: $" + shipping.toFixed(2);
-    document.getElementById("total").innerText = "Total: $" + (subtotal + shipping).toFixed(2);
-}
-
-function checkout(){
-    if(cart.length === 0){
-        alert("Your cart is empty!");
-        return;
-    }
-
-    alert("Checkout system coming soon! You're building a real store 🎣");
+    document.getElementById("total").innerHTML =
+    "Total: $" + total.toFixed(2);
 }
 </script>
 
