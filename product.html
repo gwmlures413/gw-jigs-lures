@@ -1,166 +1,332 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>GW Jigs & Lures - Product Page</title>
 
-<style>
-body{
-font-family:Arial;
-background:#f4f4f4;
-margin:0;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-header{
-background:#6b0013;
-color:white;
-text-align:center;
-padding:20px;
-}
+<title>GW Jigs & Lures | Product</title>
 
-header img{
-width:150px;
-}
+<link rel="stylesheet" href="style.css">
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
+<script src="products.js"></script>
+<script src="cart.js"></script>
 
-.product{
-background:white;
-padding:20px;
-border-radius:10px;
-display:flex;
-flex-wrap:wrap;
-gap:30px;
-}
-
-.product-image{
-flex:1;
-min-width:300px;
-}
-
-.product-image img{
-width:100%;
-border-radius:10px;
-}
-
-.product-info{
-flex:1;
-min-width:300px;
-}
-
-.price{
-font-size:28px;
-color:#6b0013;
-font-weight:bold;
-}
-
-.badge{
-background:gold;
-padding:5px 10px;
-border-radius:5px;
-font-weight:bold;
-display:inline-block;
-}
-
-select,input{
-width:100%;
-padding:10px;
-margin-top:10px;
-}
-
-button{
-width:100%;
-padding:12px;
-background:#6b0013;
-color:white;
-border:none;
-margin-top:15px;
-cursor:pointer;
-}
-
-button:hover{
-background:#8c1027;
-}
-
-footer{
-background:#6b0013;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
-</style>
 </head>
 
 <body>
 
 <header>
-<img src="logo.png">
+
+<img src="logo.png" alt="GW Jigs & Lures Logo">
+
 <h1>GW Jigs & Lures</h1>
-<p>Texas Built • Fish Approved • Christian-Owned</p>
+
+<p>Texas Built • Fish Approved • Christian-Owned ✝️</p>
+
 </header>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="index.html#soft-plastics">Soft Plastics</a>
+
+<a href="index.html#crappie">Crappie</a>
+
+<a href="index.html#about">About</a>
+
+<a href="index.html#contact">Contact</a>
+
+</nav>
 
 <div class="container">
 
-<div class="product">
+<div class="product-page">
 
 <div class="product-image">
-<img src="placeholder-lure.png">
+
+<img
+id="productImage"
+src="placeholder-lure.png"
+alt="Product">
+
 </div>
 
-<div class="product-info">
+<div class="product-details">
 
-<div class="badge">🏆 Best Seller</div>
+<div
+id="productBadge"
+class="badge">
+</div>
 
-<h2>Senko - 5"</h2>
+<h2 id="productName">
+Loading...
+</h2>
 
-<p class="price">$5.49</p>
-
-<p>
-A versatile stick bait perfect for Texas rigs,
-wacky rigs, and weightless presentations.
+<p
+class="price"
+id="productPrice">
+$0.00
 </p>
 
-<label>Color</label>
+<p
+id="productDescription">
+Loading product...
+</p>
 
-<select>
-<option>Mint Chocolate Chip</option>
-<option>Gunsmoke</option>
-<option>Junebug</option>
-<option>Pearl</option>
-<option>Watermelon</option>
-<option>Watermelon Candy</option>
-<option>Chartreuse</option>
-<option>Charlime</option>
-<option>Pink Lemonade</option>
-<option>Blue Jay</option>
+<label>
+
+Choose Color
+
+</label>
+
+<select id="colorSelect">
+
+<option>
+Loading...
+</option>
+
 </select>
 
-<label>Quantity</label>
+<div id="customOptions"></div>
 
-<input type="number" value="1" min="1">
+<label>
 
-<button>Add To Cart</button>
+Quantity
 
-<p>
-* Actual colors may vary slightly due to lighting,
-screen settings, and the handmade nature of custom soft plastics.
+</label>
+
+<input
+type="number"
+id="quantity"
+value="1"
+min="1">
+
+<button id="addButton">
+
+🛒 Add To Cart
+
+</button>
+
+<p style="margin-top:20px;">
+
+Actual colors may vary slightly due to lighting,
+screen settings,
+and the handmade nature of custom soft plastics.
+
 </p>
 
 </div>
 
 </div>
 
+<hr style="margin:60px 0;">
+
+<h2 class="section-title">
+
+You May Also Like
+
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<a href="product.html?product=senko">
+
+<img
+src="placeholder-lure.png">
+
+</a>
+
+<div class="card-content">
+
+<h3>Senko</h3>
+
+<p>$5.49</p>
+
 </div>
 
+</div>
+
+<div class="card">
+
+<a href="product.html?product=fluke">
+
+<img
+src="placeholder-lure.png">
+
+</a>
+
+<div class="card-content">
+
+<h3>Fluke</h3>
+
+<p>$5.49</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<a href="product.html?product=jig18">
+
+<img
+src="placeholder-lure.png">
+
+</a>
+
+<div class="card-content">
+
+<h3>1/8 oz Jig</h3>
+
+<p>$9.99</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const productID =
+params.get("product") || "senko";
+
+const product =
+getProduct(productID);
+
+document.getElementById("productName").innerHTML =
+product.name;
+
+document.getElementById("productPrice").innerHTML =
+"$" + product.price.toFixed(2);
+
+document.getElementById("productDescription").innerHTML =
+product.description;
+
+document.getElementById("productImage").src =
+product.image;
+
+document.getElementById("productBadge").innerHTML =
+product.badge || "";
+
+const colorSelect =
+document.getElementById("colorSelect");
+
+if(product.colors){
+
+product.colors.forEach(color=>{
+
+let option =
+document.createElement("option");
+
+option.textContent =
+color;
+
+colorSelect.appendChild(option);
+
+});
+
+}
+
+if(product.custom){
+
+document.getElementById("customOptions").innerHTML = `
+```
+```html
+<div style="margin-top:25px;">
+
+<h3>Customize Your Jig</h3>
+
+<label>Head Color</label>
+
+<select>
+
+<option>Coming Soon</option>
+
+</select>
+
+<label>Body Color</label>
+
+<select>
+
+<option>Coming Soon</option>
+
+</select>
+
+<label>Tail Color</label>
+
+<select>
+
+<option>Coming Soon</option>
+
+</select>
+
+</div>
+
+`;
+
+}
+
+document.getElementById("addButton").onclick = function(){
+
+const quantity =
+parseInt(document.getElementById("quantity").value);
+
+const color =
+colorSelect.value;
+
+for(let i = 0; i < quantity; i++){
+
+addToCart(
+
+product.name,
+
+product.price,
+
+color
+
+);
+
+}
+
+};
+
+</script>
+
 <footer>
-<p>GW Jigs & Lures</p>
-<p>Christian-Owned Small Business ✝️</p>
-<p>gwmlures@gmail.com</p>
+
+<h2>GW Jigs & Lures</h2>
+
+<p>
+
+Texas Built • Fish Approved • Christian-Owned
+
+</p>
+
+<p>
+
+Email:
+gwmlures@gmail.com
+
+</p>
+
+<p>
+
+Thank you for supporting a small business!
+
+</p>
+
 </footer>
 
 </body>
+
 </html>
+```
