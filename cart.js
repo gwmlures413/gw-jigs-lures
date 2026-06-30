@@ -1,90 +1,195 @@
+```javascript
+// ==========================================
+// GW Jigs & Lures Cart System V2
+// ==========================================
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// ----------------------
+// Add Item
+// ----------------------
 function addToCart(name, price, options = "") {
-cart.push({
-name,
-price,
-options
-});
 
-```
-localStorage.setItem("cart", JSON.stringify(cart));
+    cart.push({
+        name: name,
+        price: Number(price),
+        options: options,
+        quantity: 1
+    });
 
-displayCart();
+    saveCart();
 
-alert(name + " added to cart!");
-```
+    alert(name + " added to cart!");
 
 }
 
-function getCart() {
-return JSON.parse(localStorage.getItem("cart")) || [];
-}
+// ----------------------
+// Save Cart
+// ----------------------
+function saveCart() {
 
-function clearCart() {
-localStorage.removeItem("cart");
-cart = [];
-displayCart();
-}
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-function removeItem(index) {
-cart.splice(index, 1);
-
-```
-localStorage.setItem("cart", JSON.stringify(cart));
-
-displayCart();
-```
+    displayCart();
 
 }
 
+// ----------------------
+// Display Cart
+// ----------------------
 function displayCart() {
 
-```
-cart = getCart();
+    const cartItems = document.getElementById("cartItems");
 
-let cartItems = document.getElementById("cartItems");
+    if (!cartItems) return;
 
-if (!cartItems) return;
+    cartItems.innerHTML = "";
 
-cartItems.innerHTML = "";
+    let subtotal = 0;
 
-let subtotal = 0;
+    cart.forEach((item,index)=>{
 
-cart.forEach((item, index) => {
+        subtotal += item.price * item.quantity;
 
-    subtotal += item.price;
+        cartItems.innerHTML += `
 
-    cartItems.innerHTML += `
-        <p>
-            ${item.name} - $${item.price.toFixed(2)}
+        <div class="cart-item">
+
+            <strong>${item.name}</strong><br>
+
+            ${item.options}<br>
+
+            Qty:
+            <button onclick="decreaseQty(${index})">-</button>
+
+            ${item.quantity}
+
+            <button onclick="increaseQty(${index})">+</button>
+
+            <br>
+
+            $${(item.price * item.quantity).toFixed(2)}
+
+            <br>
+
             <button onclick="removeItem(${index})">
                 Remove
             </button>
-        </p>
-    `;
-});
 
-let state = document.getElementById("state")?.value || "TX";
+            <hr>
 
-let shipping = 0;
+        </div>
 
-if (cart.length > 0) {
-    shipping = state === "TX" ? 9 : 12;
+        `;
+
+    });
+
+    // SHIPPING
+
+    let shipping = 0;
+
+    if(subtotal > 0){
+
+        let state = "TX";
+
+        const stateSelect = document.getElementById("state");
+
+        if(stateSelect){
+
+            state = stateSelect.value;
+
+        }
+
+        shipping = state === "TX" ? 9 : 12;
+
+    }
+
+    let total = subtotal + shipping;
+
+    document.getElementById("subtotal").innerHTML =
+        "Subtotal: $" + subtotal.toFixed(2);
+
+    document.getElementById("shipping").innerHTML =
+        "Shipping: $" + shipping.toFixed(2);
+
+    document.getElementById("total").innerHTML =
+        "Total: $" + total.toFixed(2);
+
 }
 
-let total = subtotal + shipping;
+// ----------------------
+// Increase Quantity
+// ----------------------
+function increaseQty(index){
 
-document.getElementById("subtotal").innerText =
-    "Subtotal: $" + subtotal.toFixed(2);
+    cart[index].quantity++;
 
-document.getElementById("shipping").innerText =
-    "Shipping: $" + shipping.toFixed(2);
+    saveCart();
 
-document.getElementById("total").innerText =
-    "Total: $" + total.toFixed(2);
+}
+
+// ----------------------
+// Decrease Quantity
+// ----------------------
+function decreaseQty(index){
+
+    cart[index].quantity--;
+
+    if(cart[index].quantity <= 0){
+
+        cart.splice(index,1);
+
+    }
+
+    saveCart();
+
+}
+
+// ----------------------
+// Remove Item
+// ----------------------
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    saveCart();
+
+}
+
+// ----------------------
+// Clear Cart
+// ----------------------
+function clearCart(){
+
+    cart = [];
+
+    saveCart();
+
+}
+
+// ----------------------
+// Checkout
+// ----------------------
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+    alert("Online checkout is coming soon! Thank you for supporting GW Jigs & Lures!");
+
+}
+
+// ----------------------
+// Page Load
+// ----------------------
+window.onload = function(){
+
+    displayCart();
+
+};
 ```
-
-}
-
-window.onload = displayCart;
