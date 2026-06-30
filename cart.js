@@ -1,4 +1,4 @@
-```javascript
+
 // ==========================================
 // GW Jigs & Lures Cart System V2
 // ==========================================
@@ -192,4 +192,4 @@ window.onload = function(){
     displayCart();
 
 };
-```
+
