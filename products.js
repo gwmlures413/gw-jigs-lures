@@ -1,4 +1,4 @@
-```javascript
+
 // ===============================
 // GW Jigs & Lures Products
 // ===============================
@@ -161,4 +161,4 @@ const products = {
 function getProduct(id){
     return products[id];
 }
-```
+
